@@ -8,6 +8,18 @@
     <name>eap-galleon-rs Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <profiles>
+        <profile>
+            <id>openshift</id>
+        </profile>
+        <profile>
+            <id>develop</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
