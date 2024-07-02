@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
-    <artifactId>eap-galleon-rs</artifactId>
+    <artifactId>jee-traditional</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>eap-galleon-rs Maven Webapp</name>
@@ -51,12 +51,13 @@
     </repositories>
 
     <build>
-        <finalName>jee-traditional</finalName>
-        <plugins> <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.4.0</version>
-        </plugin>
+        <finalName>ROOT.war</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+            </plugin>
             <plugin>
                 <groupId>org.jboss.eap.plugins</groupId>
                 <artifactId>eap-maven-plugin</artifactId>
@@ -78,7 +79,11 @@
                             <location>org.jboss.eap.cloud:eap-cloud-galleon-pack</location>
                         </feature-pack>
                     </feature-packs>
+                    <layers>
+                        <layer>web-server</layer>
+                    </layers>
                     <runtime-name>ROOT.war</runtime-name>
+<!--                    <filename>ROOT.war</filename>-->
                 </configuration>
                 <executions>
                     <execution>
